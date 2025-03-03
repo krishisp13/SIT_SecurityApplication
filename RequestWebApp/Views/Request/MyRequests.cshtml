@@ -1,0 +1,42 @@
+﻿@model List<RequestWebApp.Models.Request>
+
+@{
+    ViewBag.Title = "My Requests";
+}
+
+<h2>My Requests</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Request ID</th>
+            <th>Created At</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var request in Model)
+        {
+            <tr>
+                <td>@request.RequestID</td>
+                <td>@request.CreatedAt</td>
+                <td>
+                    @if (request.Status == 0)
+                    {
+                        <span style="color : orange;">Pending</span>
+                    }
+                    else if (request.Status == 1)
+                    {
+                        <span style="color : green;">Approved</span>
+                    }
+                    else
+                    {
+                        <span style="color : red;">Rejected</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Index", "Home")" class="btn btn-primary">Back to Home</a>
