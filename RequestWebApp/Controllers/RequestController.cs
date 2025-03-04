@@ -25,7 +25,6 @@ namespace RequestWebApp.Controllers
             {
                 request.CreatedAt = DateTime.Now;
                 request.Status = 0;
-                request.UpdatedAt = null;
                 _dbContext.Requests.Add(request);
                 _dbContext.SaveChanges();
                 return RedirectToAction("Confirmation", "Home");

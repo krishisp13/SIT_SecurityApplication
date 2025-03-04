@@ -10,7 +10,7 @@ namespace RequestWebApp.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("SubmitRequest", "Request");
         }
 
         public ActionResult Confirmation()
